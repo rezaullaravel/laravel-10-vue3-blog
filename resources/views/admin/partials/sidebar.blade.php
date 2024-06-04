@@ -34,6 +34,17 @@
             </router-link>
           </li>
 
+
+          <li class="nav-item">
+            <router-link to="/admin/blog" active-class="active" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Blog
+
+              </p>
+            </router-link>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 
@@ -38,6 +39,15 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/category/edit/{id}',[CategoryController::class,'edit']);
     Route::post('/update/category/{id}',[CategoryController::class,'update']);
     Route::get('/category/delete/{id}',[CategoryController::class,'delete']);
+
+
+    //blog
+    Route::get('/a-dmin/blogs',[BlogController::class,'index']);
+    Route::get('/get/all/categories',[BlogController::class,'categories']);
+    Route::post('/a-dmin/store/blog',[BlogController::class,'store']);
+    Route::get('/get/BlogBy/Id/{id}',[BlogController::class,'getBlogById']);
+    Route::post('/update/blog/{id}',[BlogController::class,'update']);
+    Route::get('/blog/delete/{id}',[BlogController::class,'delete']);
 
 });
 
