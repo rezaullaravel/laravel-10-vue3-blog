@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -16,13 +17,15 @@ use App\Http\Controllers\Admin\CategoryController;
 |
 */
 
-
-Route::get('/',function(){
-    return view('welcome');
-});
+//frontend route
+ Route::get('/',[FrontHomeController::class,'index']);
+Route::get('/get/all/blogs',[FrontHomeController::class,'allBlogs']);
+Route::get('/getAll/categories',[FrontHomeController::class,'allCategories']);
+Route::get('/catWise/blog/{id}',[FrontHomeController::class,'categoryWiseBlog']);
+Route::get('/get/single/blog/{id}',[FrontHomeController::class,'singleBlog']);
+Route::get('/search/blog/{string}',[FrontHomeController::class,'searchBlog']);
 
 //admin
-
 Route::get('/login/admin',[AdminController::class,'adminLoginForm']);
 Route::post('/admin/login',[AdminController::class,'adminPostLogin'])->name('admin.post.login');
 
@@ -50,5 +53,10 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/blog/delete/{id}',[BlogController::class,'delete']);
 
 });
+
+
+Route::get('/{any}', function () {
+    return view('frontend.home'); // Ensure this points to your Vue app's entry HTML
+})->where('any', '.*');
 
 

@@ -13,6 +13,12 @@ import { createWebHistory, createRouter } from 'vue-router'
   import AdminBlogAdd from '../admin/blog/Add.vue';
   import AdminBlogEdit from '../admin/blog/Edit.vue';
 
+  //frontend
+  import FrontHome from '../frontend/FrontHome.vue';
+  import CatwiseBlog from '../frontend/CatwiseBlog.vue';
+  import SingleBlog from '../frontend/SingleBlog.vue';
+  import SearchBlog from '../frontend/SearchBlog.vue';
+
 
 
 const routes = [
@@ -28,6 +34,15 @@ const routes = [
   { path: '/admin/blog', component: AdminBlog },
   { path: '/admin/add/blog', component: AdminBlogAdd },
   { path: '/admin/edit/blog/:id',  component: AdminBlogEdit },
+
+
+  //frontend
+  { path: '/',  component: FrontHome },
+  { path: '/catwise/blog/:id',  component: CatwiseBlog },
+  { path: '/blog/single/:id',  component: SingleBlog },
+  { path: '/search/result/:searchResult',  component: SearchBlog },
+
+
 ]
 
 const router = createRouter({
